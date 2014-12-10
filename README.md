@@ -82,7 +82,7 @@ Dependencies
 
 * [Visual C++ 2010][1]
 * [Python 2.7.X][2]
-* [FBX SDK 2014.1 VS 2010][4]
+* [FBX SDK 2015.1 VS 2010][4]
 * [Python Tools for Visual Studio][5] - Useful for debugging your projects and we include a .pyproj/.sln so you'll need to have it installed to successfully open the solution.
 * [py2exe][6] - Needed if you're going to create a package
 
@@ -91,7 +91,7 @@ Compiling
 
 1. Install the Project Anarchy SDK from the [homepage][3]
     * Make sure the **Havok Content Tools** (32bit or 64bit) and **Havok Anarchy SDK** are downloaded and installed
-2. Install [FBX SDK 2014.1 VS 2010][4]
+2. Install [FBX SDK 2015.1 VS 2010][4]
 2. Git clone the repository into **$(AnarchySDK)\\Tools\\FBXImporter**. From **$(AnarchySDK)\\Tools** on the command line execute the following:
     * ```git clone https://github.com/projectanarchy/fbximporter.git FBXImporter```
 3. Open **$(AnarchySDK)\\Tools\\FBXImporter\\Workspace\\FBXImporter_C++.sln**
