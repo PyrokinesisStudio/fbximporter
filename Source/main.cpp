@@ -54,16 +54,17 @@ int main(int argc, char* argv[])
 		errorhandler.enableAll();
 	}
 
-	if (argc != 2)
+	if (argc != 2 && argc != 3)
 	{
 		printf("Invalid number of input arguments\n");
-		printf("Usage: FBXImport <input_filename>\n");
+		printf("Usage: FBXImport <input_filename> [<output_filename>]\n");
 		return -1;
 	}
 
 	// Load FBX and save as HKX
 	{
 		const char* filename = argv[1];
+		const char* outputFilename = argc == 3 ? argv[2] : argv[1];
 
 		FbxManager* fbxSdkManager = FbxManager::Create();
 		if( !fbxSdkManager )
@@ -104,14 +105,14 @@ int main(int argc, char* argv[])
 
 		if(converter.createScenes(fbxScene))
 		{
-			int lastSlashIndex = hkString::lastIndexOf(filename,'\\') + 1;
-			int extensionIndex = hkString::lastIndexOf(filename,'.');
+			int lastSlashIndex = hkString::lastIndexOf(outputFilename,'\\') + 1;
+			int extensionIndex = hkString::lastIndexOf(outputFilename,'.');
 
 			hkStringBuf path;
-			path.set(filename, lastSlashIndex);
+			path.set(outputFilename, lastSlashIndex);
 
 			hkStringBuf name;
-			name.set(filename + lastSlashIndex, extensionIndex - lastSlashIndex);
+			name.set(outputFilename + lastSlashIndex, extensionIndex - lastSlashIndex);
 
 			converter.saveScenes(path, name);
 		}
